@@ -3,14 +3,14 @@ import { useDispatch } from "react-redux";
 import { addTodo } from "../features/Todo";
 
 function Input() {
-  const [Input, setInput] = useState("");
+  const [Input, setInput] = useState(null);
   const dispatch = useDispatch();
+
   const AddTodo = () => {
     console.log(`Adding ${Input}`);
     dispatch(
       addTodo({
         task: Input,
-        id: Date.now,
       })
     );
   };
@@ -23,7 +23,7 @@ function Input() {
         <input
           type="text"
           value={Input}
-          className="ml-2  w-[300px] mt-2 rounded text-[#000000] bg-none"
+          className="ml-2 p-1  w-[300px] mt-2 rounded text-[#000000] bg-none"
           onChange={(e) => {
             setInput(e.target.value);
           }}
